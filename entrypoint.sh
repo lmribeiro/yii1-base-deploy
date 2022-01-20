@@ -31,12 +31,12 @@ then
 	echo $'\n' "------ SYNC SUCCESSFUL! -----------------------" $'\n'
 	echo $'\n' "------ RELOADING PERMISSION -------------------" $'\n'
 
-	ssh -i /root/.ssh/id_rsa -t $1@$2 "sudo chown -R $4:$4 $3"
-	ssh -i /root/.ssh/id_rsa -t $1@$2 "sudo chmod 775 -R $3/web"
-	ssh -i /root/.ssh/id_rsa -t $1@$2 "sudo chmod 777 -R $3/runtime"
-	ssh -i /root/.ssh/id_rsa -t $1@$2 "sudo chmod 777 -R $3/web/app"
-	ssh -i /root/.ssh/id_rsa -t $1@$2 "sudo chmod 777 -R $3/web/assets"
-	ssh -i /root/.ssh/id_rsa -t $1@$2 "php yii migrate --interactive=0"
+	ssh -tt -i /root/.ssh/id_rsa -t $1@$2 "sudo chown -R $4:$4 $3"
+	ssh -tt -i /root/.ssh/id_rsa -t $1@$2 "sudo chmod 775 -R $3/web"
+	ssh -tt -i /root/.ssh/id_rsa -t $1@$2 "sudo chmod 777 -R $3/runtime"
+	ssh -tt -i /root/.ssh/id_rsa -t $1@$2 "sudo chmod 777 -R $3/web/app"
+	ssh -tt -i /root/.ssh/id_rsa -t $1@$2 "sudo chmod 777 -R $3/web/assets"
+	ssh -tt -i /root/.ssh/id_rsa -t $1@$2 "php yii migrate --interactive=0"
 
 	echo $'\n' "------ CONGRATS! DEPLOY SUCCESSFUL!!! ---------" $'\n'
 	exit 0
