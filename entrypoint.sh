@@ -37,6 +37,9 @@ then
 	ssh -i /root/.ssh/id_rsa -tt $1@$2 "sudo chmod 777 -R $3/web/app"
 	ssh -i /root/.ssh/id_rsa -tt $1@$2 "sudo chmod 777 -R $3/web/assets"
 	ssh -i /root/.ssh/id_rsa -tt $1@$2 "sudo chmod 777 -R $3/web/images/catalog"
+	
+	echo $'\n' "------ RUN MIGRATIONS -------------------------" $'\n'
+	
 	ssh -i /root/.ssh/id_rsa -tt $1@$2 "php $3/yii migrate --interactive=0"
 
 	echo $'\n' "------ CONGRATS! DEPLOY SUCCESSFUL!!! ---------" $'\n'
