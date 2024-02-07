@@ -45,7 +45,7 @@ then
 
  	echo $'\n' "------ UPDATE TRANSLATIONS -------------------------" $'\n'
 	
-	ssh -i /root/.ssh/id_rsa -tt $1@$2 "php $3/yii message/extract $3/config/languages.php"
+	ssh -i /root/.ssh/id_rsa -tt $1@$2 "php $3/yii message/extract $3/config/languages.php --messagePath=$3/messages"
 
 	echo $'\n' "------ CONGRATS! DEPLOY SUCCESSFUL!!! ---------" $'\n'
 	exit 0
