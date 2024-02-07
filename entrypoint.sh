@@ -43,6 +43,10 @@ then
 	
 	ssh -i /root/.ssh/id_rsa -tt $1@$2 "php $3/yii migrate --interactive=0"
 
+ 	echo $'\n' "------ UPDATE TRANSLATIONS -------------------------" $'\n'
+	
+	ssh -i /root/.ssh/id_rsa -tt $1@$2 "php $3/yii message/extract config/languages.php"
+
 	echo $'\n' "------ CONGRATS! DEPLOY SUCCESSFUL!!! ---------" $'\n'
 	exit 0
 else
