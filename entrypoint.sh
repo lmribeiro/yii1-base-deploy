@@ -20,6 +20,7 @@ rsync --progress -avzh \
 	--exclude='.editorconfig' \
 	--exclude='.styleci.yml' \
 	--exclude='.idea/' \
+ 	--exclude='runtime/' \
 	--exclude='Dockerfile' \
 	--exclude='readme.md' \
 	--exclude='README.md' \
