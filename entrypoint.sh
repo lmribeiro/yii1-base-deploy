@@ -34,7 +34,7 @@ then
 
 	ssh -i /root/.ssh/id_rsa -tt $1@$2 "sudo chown -R $4:$4 $3"
 	ssh -i /root/.ssh/id_rsa -tt $1@$2 "sudo chmod 775 -R $3/protected/runtime"
-	ssh -i /root/.ssh/id_rsa -tt $1@$2 "sudo chmod 777 -R $3/public/assets"
+	ssh -i /root/.ssh/id_rsa -tt $1@$2 "sudo chmod 777 -R $3/public_html/assets"
 	
 	echo $'\n' "------ RUN MIGRATIONS -------------------------" $'\n'
 	
