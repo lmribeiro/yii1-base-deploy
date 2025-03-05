@@ -1,6 +1,6 @@
-# Yii2 Base Deploy
+# Yii1 Base Deploy
 
-Deploy Yii2 Base Application to Server via SSH by RSync
+Deploy Yii1 Base Application to Server via SSH by RSync
 
 ## Config example:
 
@@ -31,7 +31,7 @@ jobs:
                 run: composer install --no-dev
 
             -   name: Deploy to Server
-                uses: yiier/yii2-base-deploy@master
+                uses: yiier/yii1-base-deploy@master
                 with:
                     user: user
                     host: host
