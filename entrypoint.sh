@@ -17,11 +17,7 @@ fi
 rsync --progress -avzh \
 	--exclude='.git/' \
 	--exclude='.git*' \
-	--exclude='.editorconfig' \
-	--exclude='.styleci.yml' \
 	--exclude='.idea/' \
- 	--exclude='runtime/' \
-	--exclude='Dockerfile' \
 	--exclude='readme.md' \
 	--exclude='README.md' \
 	-e "ssh -i /root/.ssh/id_rsa" \
@@ -29,6 +25,9 @@ rsync --progress -avzh \
 
 if [ $? -eq 0 ]
 then
+	echo $1@$2
+	echo $3
+	echo $4
 	echo $'\n' "------ SYNC SUCCESSFUL! -----------------------" $'\n'
 	echo $'\n' "------ RELOADING PERMISSION -------------------" $'\n'
 
@@ -38,7 +37,7 @@ then
 	
 	echo $'\n' "------ RUN MIGRATIONS -------------------------" $'\n'
 	
-	ssh -i /root/.ssh/id_rsa -tt $1@$2 "php $3/yiic migrate up --interactive=0"
+	ssh -i /root/.ssh/id_rsa -tt $1@$2 "php $3/protected/yiic migrate up --interactive=0"
 
 	echo $'\n' "------ CONGRATS! DEPLOY SUCCESSFUL!!! ---------" $'\n'
 	exit 0
