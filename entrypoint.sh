@@ -28,7 +28,7 @@ then
 	echo $'\n' "------ SYNC SUCCESSFUL! -----------------------" $'\n'
  	echo $'\n' "------ INSTALL COMPOSER -------------------------" $'\n'
 
-	ssh -i /root/.ssh/id_rsa -tt $1@$2 "php $3/composer install
+	ssh -i /root/.ssh/id_rsa -tt $1@$2 "php $3/composer install"
    	
 	echo $'\n' "------ RELOADING PERMISSION -------------------" $'\n'
 
