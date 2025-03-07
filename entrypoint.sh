@@ -26,6 +26,10 @@ rsync --progress -avzh \
 if [ $? -eq 0 ]
 then
 	echo $'\n' "------ SYNC SUCCESSFUL! -----------------------" $'\n'
+ 	echo $'\n' "------ INSTALL COMPOSER -------------------------" $'\n'
+
+	ssh -i /root/.ssh/id_rsa -tt $1@$2 "php $3/composer install
+   	
 	echo $'\n' "------ RELOADING PERMISSION -------------------" $'\n'
 
 	ssh -i /root/.ssh/id_rsa -tt $1@$2 "sudo chown -R $4:$4 $3"
